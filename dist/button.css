@@ -1,0 +1,80 @@
+/* The supplied artwork stays intact. The native button paints the matching
+   piece of that artwork, replaces its lettering with live HTML, and owns the
+   focus, hover, touch, and keyboard behavior. */
+.enter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  background-color: #2b0e40;
+  background-image: url("assets/referencia-capa.png");
+  background-repeat: no-repeat;
+  color: #fbe2a9;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 500;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px #2a0b2a, 0 0 8px #f0c77c;
+  box-shadow: 0 0 12px #f5c26880;
+  transition: filter .18s ease, box-shadow .18s ease;
+  animation: enter-button-breathe 3.6s ease-in-out infinite;
+}
+
+.enter-button::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 7%;
+  right: 7%;
+  top: 29%;
+  bottom: 27%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #310d45, #310d45 12%, #2e0d43 50%, #310d45 88%, #310d45);
+  box-shadow: 0 0 7px 3px #2e0d43;
+}
+
+.enter-button span {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  line-height: 1;
+  transform: translateY(1px);
+}
+
+.enter-button::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 23% 7%;
+  border-radius: 100px;
+  background: linear-gradient(105deg, transparent 36%, #fff5c800 44%, #fff5c84d 50%, #fff5c800 56%, transparent 64%);
+  background-size: 280% 100%;
+  background-position: 130% 0;
+  pointer-events: none;
+  animation: enter-button-glint 5.5s ease-in-out infinite;
+}
+
+@keyframes enter-button-breathe {
+  0%, 100% { box-shadow: 0 0 8px #f5c2684d; }
+  50% { box-shadow: 0 0 21px #f5c268a3; }
+}
+
+@keyframes enter-button-glint {
+  0%, 24% { background-position: 130% 0; }
+  52%, 100% { background-position: -130% 0; }
+}
+
+.enter-button:hover { filter: brightness(1.13); animation-play-state: paused; box-shadow: 0 0 25px #f5c268c7; }
+.enter-button:active { filter: brightness(1.25); box-shadow: 0 0 30px #ffe19fe6; }
+.enter-button:focus-visible {
+  outline: 3px solid #fff6bb;
+  outline-offset: 3px;
+  box-shadow: 0 0 24px #f8ce85;
+}
+.cover-scene.entering .cover-art { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .enter-button { transition: none; animation: none; }
+  .enter-button::after { display: none; }
+}

@@ -1,0 +1,11 @@
+# Artes geradas e editadas
+
+Modo: **imagegen integrado**. A capa final e o vídeo foram copiados sem edição dos arquivos fornecidos. A arte principal recebeu uma edição para liberar os quatro círculos do contador; o salão interno foi gerado.
+
+## Convite principal — `dist/assets/convite-ana-luisa.png`
+
+> Use case: precise-object-edit. Edit target: the attached final vertical birthday invitation artwork for Ana Luisa Kolesny. Make ONE surgical change only: remove the four static number pairs inside the four countdown medallions near the lower middle (currently reading 20, 22, 14, 19), leaving those four circular number areas clean with the same deep imperial-purple texture and soft internal glow, ready for live HTML numbers. Keep the small labels DIAS, HORAS, MIN, SEG exactly as they are below each number area. Preserve every other part of the supplied image exactly: the exact lettering and spelling 'Ana Luisa Kolesny', the crown, '15 ANOS', invitation card wording, 14 DE NOVEMBRO DE 2026, ÀS 19 H, all four ornate button labels and icons, flowers, gems, gold filigree, framing, aspect ratio and composition. Do not repaint or retype any other text, do not add any new text, do not alter the four buttons. The result should appear indistinguishable from the original outside the interiors of the four number circles.
+
+## Salão — `artwork/salao-original.png`
+
+> Use case: stylized-concept. Asset type: vertical background for the interior pages of a luxury interactive 15th-birthday invitation. Create an original lavish fairy-tale royal ballroom, viewed straight ahead from its entrance: soaring ivory and gold columns, multiple glowing crystal chandeliers, deep imperial purple and violet velvet drapery, polished amethyst marble floor, floral arrangements in lilac and violet, delicate golden filigree and warm cinematic illumination. Architectural fantasy elegance with strong depth and symmetrical composition. Luxurious refined detailed digital painting. Leave the middle area visually calmer so a live pearl-paper invitation card can overlay it. Color and lighting consistent with a purple-and-gold enchanted castle. No people, no characters, no text, no numerals, no signage, no logos, no watermark, no gate.

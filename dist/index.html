@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b092d">
+  <meta name="description" content="Um reino encantado espera por você. Convite de 15 anos — 14 de novembro de 2026, às 19h.">
+  <title>Reino Encantado · 15 Anos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="button.css?v=2">
+  <link rel="stylesheet" href="video.css">
+  <link rel="stylesheet" href="invitation.css?v=2">
+</head>
+<body>
+  <div id="app">
+    <section class="cover" id="cover" aria-label="Entrada do Reino Encantado">
+      <div class="cover-backdrop" aria-hidden="true"></div>
+      <div class="cover-scene" id="cover-scene">
+        <img class="cover-art" src="assets/referencia-capa.png" alt="Capa de 15 anos com castelo roxo e dourado, portões abertos e flores violetas.">
+        <button class="enter-button" id="enter-button" type="button"><span>TOQUE PARA ENTRAR</span></button>
+      </div>
+    </section>
+
+    <section class="entrance-film" id="entrance-film" hidden aria-label="Entrada no castelo encantado">
+      <video id="entrance-video" playsinline preload="metadata" poster="assets/referencia-capa.png">
+        <source src="assets/entrada-castelo.mp4" type="video/mp4">
+      </video>
+      <span class="film-loading" id="film-loading" aria-live="polite">Entrando no reino...</span>
+      <button class="film-skip" id="film-skip" type="button">Pular vídeo</button>
+    </section>
+
+    <main id="realm" class="realm" hidden>
+      <div class="realm-backdrop" aria-hidden="true"></div>
+      <div class="realm-overlay" aria-hidden="true"></div>
+      <button type="button" class="sound-toggle" id="sound-toggle" hidden aria-label="Ativar música ambiente" aria-pressed="false">♪</button>
+      <audio id="ambient-audio" loop preload="none"></audio>
+      <div class="realm-shell">
+        <header class="realm-header">
+          <div class="crest" aria-hidden="true">♛</div>
+          <p class="eyebrow">UM CONVITE REAL</p>
+          <h2 class="royal-title"><span id="realm-name" hidden></span><span>15 <small>ANOS</small></span></h2>
+          <div class="royal-rule" aria-hidden="true"><span>◆</span></div>
+        </header>
+
+        <section id="invitation" class="view" aria-label="Convite de 15 anos de Ana Luisa Kolesny">
+          <div class="invitation-art">
+            <img id="invitation-image" alt="Convite de 15 anos de Ana Luisa Kolesny. 14 de novembro de 2026, às 19h, em Cachoeirinha, RS.">
+            <div class="art-countdown" id="countdown" role="timer" aria-label="Tempo restante para a festa">
+              <span id="days" class="art-number" aria-label="Dias">00</span>
+              <span id="hours" class="art-number" aria-label="Horas">00</span>
+              <span id="minutes" class="art-number" aria-label="Minutos">00</span>
+              <span id="seconds" class="art-number" aria-label="Segundos">00</span>
+            </div>
+            <a id="main-whatsapp-link" class="art-hotspot hotspot-rsvp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Confirmar presença pelo WhatsApp"></a>
+            <a id="main-maps-link" class="art-hotspot hotspot-location" href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver localização da festa no Google Maps"></a>
+            <button type="button" class="art-hotspot hotspot-dress" data-view="dress-code" aria-label="Ver Dress Code"></button>
+            <button type="button" class="art-hotspot hotspot-gifts" data-view="presentes" aria-label="Ver presentes"></button>
+          </div>
+        </section>
+
+        <section id="confirmacao" class="view detail-view" hidden aria-labelledby="confirmacao-title">
+          <h3 class="section-title" id="confirmacao-title" tabindex="-1">Confirmar presença</h3>
+          <article class="pearl-card detail-card"><div class="card-ornament" aria-hidden="true">✦</div><p class="card-overline">ESPERAMOS POR VOCÊ</p><p class="detail-copy" id="rsvp-copy">Confirme sua presença até 08 de novembro de 2026.</p><a id="whatsapp-link" class="card-button" target="_blank" rel="noopener noreferrer">Confirmar pelo WhatsApp <span aria-hidden="true">↗</span></a><p class="small-note" id="rsvp-note">A mensagem abrirá no WhatsApp para você revisar e enviar.</p></article>
+          <button class="back-button" type="button" data-back>← Voltar ao convite</button>
+        </section>
+
+        <section id="localizacao" class="view detail-view" hidden aria-labelledby="localizacao-title">
+          <h3 class="section-title" id="localizacao-title" tabindex="-1">Localização da festa</h3>
+          <article class="pearl-card detail-card"><div class="card-ornament" aria-hidden="true">✦</div><p class="card-overline">ONDE A MAGIA ACONTECE</p><p class="detail-date">14 de novembro de 2026 · 19h</p><address>R. Dona Cecília, 400<br>Vila City — Cachoeirinha/RS<br>CEP 94935-130</address><a id="maps-link" class="card-button" target="_blank" rel="noopener noreferrer">Ver no Google Maps <span aria-hidden="true">↗</span></a></article>
+          <button class="back-button" type="button" data-back>← Voltar ao convite</button>
+        </section>
+
+        <section id="dress-code" class="view art-detail-view" hidden tabindex="-1" aria-label="Dress Code de Ana Luisa Kolesny">
+          <div class="invitation-art">
+            <img src="assets/dress-code-ana-luisa.png" alt="Dress Code de Ana Luisa Kolesny: traje social ou sport fino. Esperamos você para celebrar conosco.">
+            <button type="button" class="art-hotspot hotspot-dress-back" data-back aria-label="Voltar ao convite"></button>
+          </div>
+        </section>
+
+        <section id="presentes" class="view art-detail-view" hidden tabindex="-1" aria-label="Presentes de Ana Luisa Kolesny">
+          <div class="invitation-art">
+            <img src="assets/presentes-ana-luisa.png" alt="Presentes: o meu maior presente é ter você comigo nesta noite encantada. Se desejar contribuir para a realização dos meus sonhos, ficarei imensamente feliz em receber seu carinho em forma de Pix. Cada gesto será guardado com amor e gratidão.">
+            <button type="button" class="art-hotspot hotspot-gifts-back" data-back aria-label="Voltar ao convite"></button>
+          </div>
+        </section>
+        <footer class="site-footer">TR DESIGN <span aria-hidden="true">✦</span> REINO ENCANTADO</footer>
+      </div>
+    </main>
+  </div>
+  <script defer src="app.js"></script>
+</body>
+</html>
+
+

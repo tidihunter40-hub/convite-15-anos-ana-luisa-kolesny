@@ -1,0 +1,176 @@
+/* The main invitation is a single, uncropped image. These are interaction and
+   live-countdown layers only; all decorative artwork remains in the image. */
+.realm.showing-art {
+  background: #190920;
+}
+
+.realm.showing-art .realm-backdrop,
+.realm.showing-art .realm-overlay,
+.realm.showing-art .realm-header,
+.realm.showing-art .site-footer {
+  display: none;
+}
+
+.realm.showing-art .realm-shell {
+  width: min(100%, 940px);
+  min-height: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.realm.showing-art #invitation,
+.realm.showing-art #dress-code,
+.realm.showing-art #presentes {
+  animation: none;
+}
+
+.invitation-art {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.invitation-art > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.art-countdown {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.art-number {
+  position: absolute;
+  top: 64.45%;
+  width: 9%;
+  transform: translate(-50%, -50%);
+  color: #fce6ae;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(14px, 4.6vw, 44px);
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 1px 2px #29083b, 0 0 7px #d9a655;
+  font-variant-numeric: tabular-nums;
+}
+
+#days { left: 29.45%; }
+#hours { left: 43.25%; }
+#minutes { left: 57.05%; }
+#seconds { left: 70.9%; }
+#days.three-digits { font-size: clamp(12px, 3.8vw, 36px); }
+
+.art-hotspot {
+  position: absolute;
+  left: 19%;
+  width: 62%;
+  height: 5.8%;
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  isolation: isolate;
+}
+
+.art-hotspot::before {
+  content: "";
+  position: absolute;
+  inset: 3% 1.5%;
+  border: 1px solid #ffe6a04d;
+  border-radius: inherit;
+  box-shadow: inset 0 0 7px #ffe6a01f, 0 0 8px #f5c26846;
+  pointer-events: none;
+  opacity: .42;
+  animation: art-button-breathe 3.6s ease-in-out infinite;
+}
+
+.art-hotspot::after {
+  content: "";
+  position: absolute;
+  inset: 6% 3%;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 35%, #fff5c800 43%, #fff5c83d 50%, #fff5c800 57%, transparent 65%);
+  background-size: 280% 100%;
+  background-position: 130% 0;
+  pointer-events: none;
+  animation: art-button-glint 5.5s ease-in-out infinite;
+}
+
+@keyframes art-button-breathe {
+  0%, 100% { opacity: .32; }
+  50% { opacity: .72; }
+}
+
+@keyframes art-button-glint {
+  0%, 24% { background-position: 130% 0; }
+  52%, 100% { background-position: -130% 0; }
+}
+
+.hotspot-rsvp { top: 71.1%; }
+.hotspot-location { top: 77.4%; }
+.hotspot-dress { top: 83.7%; }
+.hotspot-gifts { top: 90%; }
+.hotspot-dress-back { left: 17%; top: 79.3%; width: 66%; height: 6.9%; }
+.hotspot-gifts-back { left: 19%; top: 80.7%; width: 62%; height: 5.5%; }
+
+.art-hotspot:hover { background: #fff4bb0c; }
+.art-hotspot:hover::before,
+.art-hotspot:focus-visible::before,
+.art-hotspot:active::before {
+  opacity: 1;
+  box-shadow: inset 0 0 10px #ffe6a04d, 0 0 15px #f5c268aa;
+  animation-play-state: paused;
+}
+.art-hotspot:active { background: #fff4bb1c; }
+.art-hotspot:focus-visible {
+  outline: 3px solid #fff2b7;
+  outline-offset: 2px;
+  box-shadow: 0 0 14px #f5c268;
+}
+
+@media (min-width: 940px) {
+  .art-number { font-size: 44px; }
+  #days.three-digits { font-size: 36px; }
+}
+
+/* On phones, scale the original 940:1672 artwork until it fills the viewport.
+   The artwork, numbers, and hotspots stay in one coordinate system. */
+@media (max-width: 767px) {
+  .realm.showing-art,
+  .realm.showing-art .realm-shell,
+  .realm.showing-art #invitation,
+  .realm.showing-art #dress-code,
+  .realm.showing-art #presentes {
+    width: 100%;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .invitation-art {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: max(100%, 56.22dvh);
+    transform: translate(-50%, -50%);
+  }
+
+  #dress-code .invitation-art,
+  #presentes .invitation-art { width: max(100%, 56.28dvh); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art-hotspot::before,
+  .art-hotspot::after { animation: none; }
+  .art-hotspot::before { opacity: .6; }
+  .art-hotspot::after { display: none; }
+}

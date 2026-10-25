@@ -1,0 +1,70 @@
+.entrance-film {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #16071f;
+  isolation: isolate;
+}
+
+.entrance-film::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -8%;
+  background: url("assets/referencia-capa.png") center/cover no-repeat;
+  filter: blur(32px) brightness(.35);
+}
+
+.entrance-film video {
+  display: block;
+  width: min(100vw, 56.25dvh);
+  height: 100dvh;
+  object-fit: cover;
+  background: #180a28;
+  box-shadow: 0 0 70px #100616a8;
+}
+
+.film-loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #240d37c9;
+  color: #ffe0a0;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.film-loading[hidden] { display: none; }
+
+.film-skip {
+  position: absolute;
+  z-index: 2;
+  top: max(15px, env(safe-area-inset-top));
+  right: max(15px, env(safe-area-inset-right));
+  padding: 7px 12px;
+  border: 1px solid #e8c47a;
+  border-radius: 999px;
+  background: #2c103dbc;
+  color: #ffe6ac;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: .68rem;
+  letter-spacing: .03em;
+}
+
+.film-skip:hover { background: #5a2674; }
+.entrance-film.is-finishing { animation: film-out .9s ease-in-out forwards; }
+@keyframes film-out { from { opacity: 1; } to { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .entrance-film.is-finishing { animation-duration: .25s; }
+}
