@@ -22,6 +22,8 @@ Depois acesse `http://127.0.0.1:8765/`.
 
 O site não exige etapa de compilação. `vercel.json` configura a pasta `dist` como saída estática; as prévias locais e os arquivos de configuração privada ficam fora do Git.
 
+Site publicado: [convite-15-anos-ana-luisa-kolesny.vercel.app](https://convite-15-anos-ana-luisa-kolesny.vercel.app/). A primeira publicação foi feita diretamente com a pasta `dist` pela Vercel; atualizações no GitHub precisam de uma nova implantação enquanto a integração Git não estiver conectada.
+
 ## Dados configuráveis
 
 O nome do arquivo da arte principal está na constante `CONVITE_ART`, no início de [`dist/app.js`](dist/app.js). O objeto `evento` centraliza nome, data, telefone e endereço.
